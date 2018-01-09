@@ -44,6 +44,8 @@
   <ItemGroup>
     <Compile Include="BookManagement.cs" />
     <Compile Include="BookVO.cs" />
+    <Compile Include="Const.cs" />
+    <Compile Include="Exception.cs" />
     <Compile Include="MemberManagement.cs" />
     <Compile Include="MemberVO.cs" />
     <Compile Include="Program.cs" />
