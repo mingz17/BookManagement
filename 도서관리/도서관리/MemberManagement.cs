@@ -9,5 +9,9 @@ namespace 도서관리
     class MemberManagement
     {
         List<MemberVO> member;
+        public MemberManagement()
+        {
+            member = new List<MemberVO>();
+        }
     }
 }
