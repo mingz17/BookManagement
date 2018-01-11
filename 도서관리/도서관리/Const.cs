@@ -8,7 +8,9 @@ namespace 도서관리
 {
     class Const
     {
-        public const bool LOGIN = true;
-        public const string MANAGER = "rhksflwk"; //관리자
+        public const int LOGIN = 1;
+        public const int LOGOUT = -1;
+        public const int MANAGER = 0; //관리자
+        public const string MASTER = "master";
     }
 }

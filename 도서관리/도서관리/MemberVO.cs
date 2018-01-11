@@ -21,9 +21,9 @@ namespace 도서관리
             this.memberPhone = memberPhone;
         }
 
-        public int Id
+        public string Id
         {
-            get { return Id; }
+            get { return id; }
             set { Id = value; }
         }
 
