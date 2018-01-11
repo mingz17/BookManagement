@@ -30,51 +30,53 @@ namespace 도서관리
         public void viewLogin()
         {
             Console.Clear();
-            Console.WriteLine("< 도서 관리 프로그램 >\n");
-            Console.WriteLine("1) 로그아웃");
-            Console.WriteLine("2) 회원 정보 수정");
-            Console.WriteLine("3) 회원 검색");
-            Console.WriteLine("4) 회원 리스트 출력");
-            Console.WriteLine("5) 도서 검색");
-            Console.WriteLine("6) 도서 리스트 출력");
-            Console.WriteLine("7) 도서 대여");
-            Console.WriteLine("8) 도서 반납");
-            Console.WriteLine("9) 회원 탈퇴");
-            Console.WriteLine("10) 프로그램 종료");
-            Console.Write("\n메뉴 번호를 선택해주세요 >> ");
+            Console.WriteLine("\t\t《 도서 관리 프로그램 》\n");
+            Console.WriteLine("\n\t⑴ 로그아웃");
+            Console.WriteLine("\n\t⑵ 회원 정보 수정");
+            Console.WriteLine("\n\t⑶ 회원 검색");
+            Console.WriteLine("\n\t⑷ 회원 리스트 출력");
+            Console.WriteLine("\n\t⑸ 도서 검색");
+            Console.WriteLine("\n\t⑹ 도서 리스트 출력");
+            Console.WriteLine("\n\t⑺ 도서 대여");
+            Console.WriteLine("\n\t⑻ 도서 반납");
+            Console.WriteLine("\n\t⑼ 회원 탈퇴");
+            Console.WriteLine("\n\t⑽ 프로그램 종료");
+            Console.Write("\n   메뉴 번호를 선택해주세요 ː ");
             loginMode();
         }
 
         public void viewLogout()
         {
             Console.Clear();
-            Console.WriteLine("< 도서 관리 프로그램 >\n");
-            Console.WriteLine("1) 회원 가입");
-            Console.WriteLine("2) 로그인");
-            Console.WriteLine("3) 회원 검색");
-            Console.WriteLine("4) 회원 리스트 출력");
-            Console.WriteLine("5) 도서 검색");
-            Console.WriteLine("6) 도서 리스트 출력");
-            Console.WriteLine("7) 프로그램 종료");
-            Console.Write("\n메뉴 번호를 선택해주세요 >> ");
+            Console.SetWindowSize(55, 20);
+            Console.WriteLine("\t\t《 도서 관리 프로그램 》\n");
+            Console.WriteLine("\n\t⑴ 회원 가입");
+            Console.WriteLine("\n\t⑵ 로그인");
+            Console.WriteLine("\n\t⑶ 회원 검색");
+            Console.WriteLine("\n\t⑷ 회원 리스트 출력");
+            Console.WriteLine("\n\t⑸ 도서 검색");
+            Console.WriteLine("\n\t⑹ 도서 리스트 출력");
+            Console.WriteLine("\n\t⑺ 프로그램 종료");
+            Console.Write("\n   메뉴 번호를 선택해주세요 ː ");
             logoutMode();
         }
 
         public void viewManager()
         {
             Console.Clear();
-            Console.WriteLine("< 도서 관리 프로그램 >");
-            Console.WriteLine("관리자 모드\n");
-            Console.WriteLine("1) 도서 등록");
-            Console.WriteLine("2) 도서 검색");
-            Console.WriteLine("3) 도서 리스트 출력");
-            Console.WriteLine("4) 도서 변경");
-            Console.WriteLine("5) 도서 삭제");
-            Console.WriteLine("6) 회원 검색");
-            Console.WriteLine("7) 회원 리스트 출력");
-            Console.WriteLine("8) 관리자 모드에서 나가기");
-            Console.WriteLine("9) 프로그램 종료");
-            Console.Write("\n메뉴 번호를 선택해주세요 >> ");
+            Console.SetWindowSize(55, 25);
+            Console.WriteLine("\t\t《 도서 관리 프로그램 》\n");
+            Console.WriteLine("\t\t    Θ관리자 모드Θ");
+            Console.WriteLine("\n\t⑴ 도서 등록");
+            Console.WriteLine("\n\t⑵ 도서 검색");
+            Console.WriteLine("\n\t⑶ 도서 리스트 출력");
+            Console.WriteLine("\n\t⑷ 도서 변경");
+            Console.WriteLine("\n\t⑸ 도서 삭제");
+            Console.WriteLine("\n\t⑹ 회원 검색");
+            Console.WriteLine("\n\t⑺ 회원 리스트 출력");
+            Console.WriteLine("\n\t⑻ 관리자 모드에서 나가기");
+            Console.WriteLine("\n\t⑼ 프로그램 종료");
+            Console.Write("\n   메뉴 번호를 선택해주세요 ː ");
             managerMode();
         }
 
