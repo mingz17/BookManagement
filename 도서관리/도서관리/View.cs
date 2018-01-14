@@ -30,17 +30,17 @@ namespace 도서관리
         public void viewLogin()
         {
             Console.Clear();
+            Console.SetWindowSize(55, 25);
             Console.WriteLine("\t\t《 도서 관리 프로그램 》\n");
             Console.WriteLine("\n\t⑴ 로그아웃");
             Console.WriteLine("\n\t⑵ 회원 정보 수정");
             Console.WriteLine("\n\t⑶ 회원 검색");
-            Console.WriteLine("\n\t⑷ 회원 리스트 출력");
-            Console.WriteLine("\n\t⑸ 도서 검색");
-            Console.WriteLine("\n\t⑹ 도서 리스트 출력");
-            Console.WriteLine("\n\t⑺ 도서 대여");
-            Console.WriteLine("\n\t⑻ 도서 반납");
-            Console.WriteLine("\n\t⑼ 회원 탈퇴");
-            Console.WriteLine("\n\t⑽ 프로그램 종료");
+            Console.WriteLine("\n\t⑷ 도서 검색");
+            Console.WriteLine("\n\t⑸ 도서 리스트 출력");
+            Console.WriteLine("\n\t⑹ 도서 대여");
+            Console.WriteLine("\n\t⑺ 도서 반납");
+            Console.WriteLine("\n\t⑻ 회원 탈퇴");
+            Console.WriteLine("\n\t⑼ 프로그램 종료");
             Console.Write("\n   메뉴 번호를 선택해주세요 ː ");
             loginMode();
         }
@@ -88,13 +88,12 @@ namespace 도서관리
                 case 1: checkLogin = Const.LOGOUT; menu(); break;
                 case 2: member.modify(); viewLogin(); break;
                 case 3: member.search(); viewLogin(); break;
-                case 4: member.print(); viewLogin(); break;
-                case 5: book.search(); viewLogin(); break;
-                case 6: book.print(); viewLogin(); break;
-                case 7: break;
-                case 8: break;
-                case 9: member.delete(); checkLogin = Const.LOGOUT; menu(); break;
-                case 10: return;
+                case 4: book.search(); viewLogin(); break;
+                case 5: book.print(); viewLogin(); break;
+                case 6: string lendingName=book.bookLending(); if(lendingName!=null) member.bookLending(lendingName); viewLogin(); break;
+                case 7: string returningName = member.bookReturning(); if (returningName != null) book.bookReturning(returningName); viewLogin(); break;
+                case 8: member.delete(); checkLogin = Const.LOGOUT; menu(); break;
+                case 9: return;
                 default: break;
             }
         }
