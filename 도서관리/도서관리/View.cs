@@ -11,26 +11,25 @@ namespace 도서관리
         int checkLogin = Const.LOGOUT;
         BookManagement book = new BookManagement();
         MemberManagement member = new MemberManagement();
+        Exception except = new Exception();
+
         public void menu()
         {
             if (checkLogin == Const.MANAGER)
-            {
                 viewManager();
-            }
+
             else if (checkLogin == Const.LOGIN)
-            {
                 viewLogin();
-            }
+
             else
-            {
                 viewLogout();
-            }
+
         }
 
         public void viewLogin()
         {
             Console.Clear();
-            Console.SetWindowSize(55, 25);
+            Console.SetWindowSize(55, 30);
             Console.WriteLine("\t\t《 도서 관리 프로그램 》\n");
             Console.WriteLine("\n\t⑴ 로그아웃");
             Console.WriteLine("\n\t⑵ 회원 정보 수정");
@@ -41,14 +40,13 @@ namespace 도서관리
             Console.WriteLine("\n\t⑺ 도서 반납");
             Console.WriteLine("\n\t⑻ 회원 탈퇴");
             Console.WriteLine("\n\t⑼ 프로그램 종료");
-            Console.Write("\n   메뉴 번호를 선택해주세요 ː ");
             loginMode();
         }
 
         public void viewLogout()
         {
             Console.Clear();
-            Console.SetWindowSize(55, 20);
+            Console.SetWindowSize(55, 25);
             Console.WriteLine("\t\t《 도서 관리 프로그램 》\n");
             Console.WriteLine("\n\t⑴ 회원 가입");
             Console.WriteLine("\n\t⑵ 로그인");
@@ -57,14 +55,13 @@ namespace 도서관리
             Console.WriteLine("\n\t⑸ 도서 검색");
             Console.WriteLine("\n\t⑹ 도서 리스트 출력");
             Console.WriteLine("\n\t⑺ 프로그램 종료");
-            Console.Write("\n   메뉴 번호를 선택해주세요 ː ");
             logoutMode();
         }
 
         public void viewManager()
         {
             Console.Clear();
-            Console.SetWindowSize(55, 25);
+            Console.SetWindowSize(55, 30);
             Console.WriteLine("\t\t《 도서 관리 프로그램 》\n");
             Console.WriteLine("\t\t    Θ관리자 모드Θ");
             Console.WriteLine("\n\t⑴ 도서 등록");
@@ -76,32 +73,39 @@ namespace 도서관리
             Console.WriteLine("\n\t⑺ 회원 리스트 출력");
             Console.WriteLine("\n\t⑻ 관리자 모드에서 나가기");
             Console.WriteLine("\n\t⑼ 프로그램 종료");
-            Console.Write("\n   메뉴 번호를 선택해주세요 ː ");
             managerMode();
         }
 
         public void loginMode()
         {
-            int input = int.Parse(Console.ReadLine());
-            switch (input)
+            Input:
+            Console.Write("\n   메뉴 번호를 선택해주세요 ː ");
+            string input = Console.ReadLine();
+            if (!Exception.CheckNumber(input)) goto Input;
+            int input_num = int.Parse(input);
+            switch (input_num)
             {
                 case 1: checkLogin = Const.LOGOUT; menu(); break;
                 case 2: member.modify(); viewLogin(); break;
                 case 3: member.search(); viewLogin(); break;
                 case 4: book.search(); viewLogin(); break;
                 case 5: book.print(); viewLogin(); break;
-                case 6: string lendingName=book.bookLending(); if(lendingName!=null) member.bookLending(lendingName); viewLogin(); break;
+                case 6: string lendingName = book.bookLending(); if (lendingName != null) member.bookLending(lendingName); viewLogin(); break;
                 case 7: string returningName = member.bookReturning(); if (returningName != null) book.bookReturning(returningName); viewLogin(); break;
                 case 8: member.delete(); checkLogin = Const.LOGOUT; menu(); break;
                 case 9: return;
-                default: break;
+                default: Console.WriteLine("   번호를 다시 입력해주세요.."); goto Input;
             }
         }
 
         public void logoutMode()
         {
-            int input = int.Parse(Console.ReadLine());
-            switch (input)
+            Input:
+            Console.Write("\n   메뉴 번호를 선택해주세요 ː ");
+            string input = Console.ReadLine();
+            if (!Exception.CheckNumber(input)) goto Input;
+            int input_num = int.Parse(input);
+            switch (input_num)
             {
                 case 1: member.signUp(); viewLogout(); break;
                 case 2: checkLogin = member.login(); menu(); break;
@@ -110,14 +114,18 @@ namespace 도서관리
                 case 5: book.search(); viewLogout(); break;
                 case 6: book.print(); viewLogout(); break;
                 case 7: return;
-                default: break;
+                default: Console.WriteLine("   번호를 다시 입력해주세요.."); goto Input;
             }
         }
 
         public void managerMode()
         {
-            int input = int.Parse(Console.ReadLine());
-            switch (input)
+            Input:
+            Console.Write("\n   메뉴 번호를 선택해주세요 ː ");
+            string input = Console.ReadLine();
+            if (!Exception.CheckNumber(input)) goto Input;
+            int input_num = int.Parse(input);
+            switch (input_num)
             {
                 case 1: book.registration(); viewManager(); break;
                 case 2: book.search(); viewManager(); break;
@@ -128,7 +136,7 @@ namespace 도서관리
                 case 7: member.print(); viewManager(); break;
                 case 8: checkLogin = Const.LOGOUT; menu(); break;
                 case 9: return;
-                default: break;
+                default: Console.WriteLine("   번호를 다시 입력해주세요.."); goto Input;
             }
         }
     }

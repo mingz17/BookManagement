@@ -24,7 +24,7 @@ namespace 도서관리
             this.lending = lending;
         }
 
-        public int BookNo //get; set;
+        public int BookNo
         {
             get { return bookNo; }
             set { bookNo = value; }
