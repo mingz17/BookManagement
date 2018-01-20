@@ -4,17 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-
+ 
 namespace 도서관리
 {
     class Exception
     {
-
+        // foreach (Match match in Regex.Matches(input, pattern))
+        /*
+         * foreach (Match match in Regex.Matches(letter, @"[^a-zA-Z]{4,11}"))
+                ismatch = match.Success;
+        */
         public static bool CheckId(string letter) 
         {
             bool IsCheck = true;
 
-            Regex engRegex = new Regex(@"[a-zA-Z]{4}");
+            Regex engRegex = new Regex(@"[a-zA-Z]{4,11}");
             Boolean ismatch = engRegex.IsMatch(letter);
             Regex numRegex = new Regex(@"[0-9]");
             Boolean ismatchNum = numRegex.IsMatch(letter);
@@ -26,7 +30,7 @@ namespace 도서관리
 
             if (!IsCheck)
             {
-                Console.WriteLine("   (※영문<4자 이상> 또는 숫자만 입력해주세요)");
+                Console.WriteLine("   (※영문<4~11자> 또는 숫자만 입력해주세요)");
                 return IsCheck;
             }
             else
@@ -37,7 +41,7 @@ namespace 도서관리
         {
             bool IsCheck = true;
 
-            Regex regex = new Regex(@"[a-z0-9_]{4,20}");
+            Regex regex = new Regex(@"[a-z0-9_]{4,15}");
             Boolean ismatch = regex.IsMatch(letter);
 
             if (!ismatch)
@@ -47,7 +51,7 @@ namespace 도서관리
 
             if (!IsCheck)
             {
-                Console.WriteLine("   (※영문 또는 숫자만 입력해주세요<4~20자>)\n");
+                Console.WriteLine("   (※영문 또는 숫자만 입력해주세요<4~15자>)\n");
                 return IsCheck;
             }
             else

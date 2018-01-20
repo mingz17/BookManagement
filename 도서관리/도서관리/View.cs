@@ -30,6 +30,7 @@ namespace 도서관리
         {
             Console.Clear();
             Console.SetWindowSize(55, 30);
+            Console.WriteLine();
             Console.WriteLine("\t\t《 도서 관리 프로그램 》\n");
             Console.WriteLine("\n\t⑴ 로그아웃");
             Console.WriteLine("\n\t⑵ 회원 정보 수정");
@@ -47,6 +48,7 @@ namespace 도서관리
         {
             Console.Clear();
             Console.SetWindowSize(55, 25);
+            Console.WriteLine();
             Console.WriteLine("\t\t《 도서 관리 프로그램 》\n");
             Console.WriteLine("\n\t⑴ 회원 가입");
             Console.WriteLine("\n\t⑵ 로그인");
@@ -92,7 +94,7 @@ namespace 도서관리
                 case 5: book.print(); viewLogin(); break;
                 case 6: string lendingName = book.bookLending(); if (lendingName != null) member.bookLending(lendingName); viewLogin(); break;
                 case 7: string returningName = member.bookReturning(); if (returningName != null) book.bookReturning(returningName); viewLogin(); break;
-                case 8: member.delete(); checkLogin = Const.LOGOUT; menu(); break;
+                case 8: if (member.delete()) { checkLogin = Const.LOGOUT; menu(); } else viewLogin(); break;
                 case 9: return;
                 default: Console.WriteLine("   번호를 다시 입력해주세요.."); goto Input;
             }

@@ -153,7 +153,7 @@ namespace 도서관리
             }
         }
 
-        public void delete()
+        public bool delete()
         {
             Console.Clear();
             Console.SetWindowSize(65, 15);
@@ -167,18 +167,20 @@ namespace 도서관리
             string password = Console.ReadLine();
             if (!Exception.CheckEnglishNumber(password)) goto InputPassword;
 
-            if (memberLogin.MemberName == name && memberLogin.Password == password)
+            if (memberLogin.MemberName == name && memberLogin.Password == password)// id
             {
-                member.Remove(member.Find(x => x.MemberName == name && x.Password == password));
+                member.Remove(memberLogin); //member.Find(x => x.MemberName == name && x.Password == password)
                 Console.WriteLine("\n\t\t『 회원 탈퇴가 완료되었습니다 』");
                 Console.WriteLine("\n\t\t ♥ 이용해주셔서 감사합니다 ♥");
                 System.Threading.Thread.Sleep(1300);
+                return true;
             }
             else
             {
                 Console.WriteLine("\n   회원를 찾을 수 없습니다..");
                 Console.Write("   뒤로 돌아가려면 아무 키나 누르세요..");
-                Console.ReadKey();
+                Console.ReadKey();  
+                return false;
             }
         }
 
